@@ -12,6 +12,6 @@ where /Q cl.exe || (
 	call "!VS!\VC\Auxiliary\Build\vcvarsall.bat" amd64 || exit /b 1
 )
 
-clang -c %~dp0ufbx.c -o %~dp0ufbx.obj -target x86_64-pc-windows-msvc -O3
-lib /OUT:%~dp0ufbx/ufbx.lib %~dp0ufbx.obj
-del %~dp0ufbx.obj
+clang -c %~dp0deps/ufbx.c -o %~dp0deps/ufbx.obj -target x86_64-pc-windows-msvc -O3
+lib /OUT:%~dp0ufbx/ufbx.lib %~dp0deps/ufbx.obj
+del %~dp0deps/ufbx.obj
