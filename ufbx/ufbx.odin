@@ -4,11 +4,7 @@ import "core:c"
 
 _ :: c
 
-when ODIN_OS == .Windows {
-	foreign import lib "ufbx.lib"
-} else {
-	foreign import lib "ufbx.a"
-}
+foreign import lib "ufbx.lib"
 
 // Main floating point type used everywhere in ufbx, defaults to `double`.
 // If you define `UFBX_REAL_IS_FLOAT` to any value, `ufbx_real` will be defined
@@ -81,12 +77,12 @@ Matrix :: struct {
 }
 
 Void_List :: struct {
-	data:  rawptr,
+	data:  [^]rawptr,
 	count: uint,
 }
 
 Bool_List :: struct {
-	data:  ^bool,
+	data:  [^]bool,
 	count: uint,
 }
 
@@ -96,7 +92,7 @@ Uint32_List :: struct {
 }
 
 Real_List :: struct {
-	data:  ^Real,
+	data:  [^]Real,
 	count: uint,
 }
 
@@ -116,7 +112,7 @@ Vec4_List :: struct {
 }
 
 String_List :: struct {
-	data:  ^String,
+	data:  [^]String,
 	count: uint,
 }
 
@@ -145,12 +141,12 @@ Dom_Value :: struct {
 }
 
 Dom_Node_List :: struct {
-	data:  ^^Dom_Node,
+	data:  [^]^Dom_Node,
 	count: uint,
 }
 
 Dom_Value_List :: struct {
-	data:  ^Dom_Value,
+	data:  [^]Dom_Value,
 	count: uint,
 }
 
@@ -305,7 +301,7 @@ Prop :: struct {
 }
 
 Prop_List :: struct {
-	data:  ^Prop,
+	data:  [^]Prop,
 	count: uint,
 }
 
@@ -319,12 +315,12 @@ Props :: struct {
 }
 
 Element_List :: struct {
-	data:  ^^Element,
+	data:  [^]^Element,
 	count: uint,
 }
 
 Unknown_List :: struct {
-	data:  ^^Unknown,
+	data:  [^]^Unknown,
 	count: uint,
 }
 
@@ -334,47 +330,47 @@ Node_List :: struct {
 }
 
 Mesh_List :: struct {
-	data:  ^^Mesh,
+	data:  [^]^Mesh,
 	count: uint,
 }
 
 Light_List :: struct {
-	data:  ^^Light,
+	data:  [^]^Light,
 	count: uint,
 }
 
 Camera_List :: struct {
-	data:  ^^Camera,
+	data:  [^]^Camera,
 	count: uint,
 }
 
 Bone_List :: struct {
-	data:  ^^Bone,
+	data:  [^]^Bone,
 	count: uint,
 }
 
 Empty_List :: struct {
-	data:  ^^Empty,
+	data:  [^]^Empty,
 	count: uint,
 }
 
 Line_Curve_List :: struct {
-	data:  ^^Line_Curve,
+	data:  [^]^Line_Curve,
 	count: uint,
 }
 
 Nurbs_Curve_List :: struct {
-	data:  ^^Nurbs_Curve,
+	data:  [^]^Nurbs_Curve,
 	count: uint,
 }
 
 Nurbs_Surface_List :: struct {
-	data:  ^^Nurbs_Surface,
+	data:  [^]^Nurbs_Surface,
 	count: uint,
 }
 
 Nurbs_Trim_Surface_List :: struct {
-	data:  ^^Nurbs_Trim_Surface,
+	data:  [^]^Nurbs_Trim_Surface,
 	count: uint,
 }
 
@@ -384,152 +380,152 @@ Nurbs_Trim_Boundary_List :: struct {
 }
 
 Procedural_Geometry_List :: struct {
-	data:  ^^Procedural_Geometry,
+	data:  [^]^Procedural_Geometry,
 	count: uint,
 }
 
 Stereo_Camera_List :: struct {
-	data:  ^^Stereo_Camera,
+	data:  [^]^Stereo_Camera,
 	count: uint,
 }
 
 Camera_Switcher_List :: struct {
-	data:  ^^Camera_Switcher,
+	data:  [^]^Camera_Switcher,
 	count: uint,
 }
 
 Marker_List :: struct {
-	data:  ^^Marker,
+	data:  [^]^Marker,
 	count: uint,
 }
 
 Lod_Group_List :: struct {
-	data:  ^^Lod_Group,
+	data:  [^]^Lod_Group,
 	count: uint,
 }
 
 Skin_Deformer_List :: struct {
-	data:  ^^Skin_Deformer,
+	data:  [^]^Skin_Deformer,
 	count: uint,
 }
 
 Skin_Cluster_List :: struct {
-	data:  ^^Skin_Cluster,
+	data:  [^]^Skin_Cluster,
 	count: uint,
 }
 
 Blend_Deformer_List :: struct {
-	data:  ^^Blend_Deformer,
+	data:  [^]^Blend_Deformer,
 	count: uint,
 }
 
 Blend_Channel_List :: struct {
-	data:  ^^Blend_Channel,
+	data:  [^]^Blend_Channel,
 	count: uint,
 }
 
 Blend_Shape_List :: struct {
-	data:  ^^Blend_Shape,
+	data:  [^]^Blend_Shape,
 	count: uint,
 }
 
 Cache_Deformer_List :: struct {
-	data:  ^^Cache_Deformer,
+	data:  [^]^Cache_Deformer,
 	count: uint,
 }
 
 Cache_File_List :: struct {
-	data:  ^^Cache_File,
+	data:  [^]^Cache_File,
 	count: uint,
 }
 
 Material_List :: struct {
-	data:  ^^Material,
+	data:  [^]^Material,
 	count: uint,
 }
 
 Texture_List :: struct {
-	data:  ^^Texture,
+	data:  [^]^Texture,
 	count: uint,
 }
 
 Video_List :: struct {
-	data:  ^^Video,
+	data:  [^]^Video,
 	count: uint,
 }
 
 Shader_List :: struct {
-	data:  ^^Shader,
+	data:  [^]^Shader,
 	count: uint,
 }
 
 Shader_Binding_List :: struct {
-	data:  ^^Shader_Binding,
+	data:  [^]^Shader_Binding,
 	count: uint,
 }
 
 Anim_Stack_List :: struct {
-	data:  ^^Anim_Stack,
+	data:  [^]^Anim_Stack,
 	count: uint,
 }
 
 Anim_Layer_List :: struct {
-	data:  ^^Anim_Layer,
+	data:  [^]^Anim_Layer,
 	count: uint,
 }
 
 Anim_Value_List :: struct {
-	data:  ^^Anim_Value,
+	data:  [^]^Anim_Value,
 	count: uint,
 }
 
 Anim_Curve_List :: struct {
-	data:  ^^Anim_Curve,
+	data:  [^]^Anim_Curve,
 	count: uint,
 }
 
 Display_Layer_List :: struct {
-	data:  ^^Display_Layer,
+	data:  [^]^Display_Layer,
 	count: uint,
 }
 
 Selection_Set_List :: struct {
-	data:  ^^Selection_Set,
+	data:  [^]^Selection_Set,
 	count: uint,
 }
 
 Selection_Node_List :: struct {
-	data:  ^^Selection_Node,
+	data:  [^]^Selection_Node,
 	count: uint,
 }
 
 Character_List :: struct {
-	data:  ^^Character,
+	data:  [^]^Character,
 	count: uint,
 }
 
 Constraint_List :: struct {
-	data:  ^^Constraint,
+	data:  [^]^Constraint,
 	count: uint,
 }
 
 Audio_Layer_List :: struct {
-	data:  ^^Audio_Layer,
+	data:  [^]^Audio_Layer,
 	count: uint,
 }
 
 Audio_Clip_List :: struct {
-	data:  ^^Audio_Clip,
+	data:  [^]^Audio_Clip,
 	count: uint,
 }
 
 Pose_List :: struct {
-	data:  ^^Pose,
+	data:  [^]^Pose,
 	count: uint,
 }
 
 Metadata_Object_List :: struct {
-	data:  ^^Metadata_Object,
+	data:  [^]^Metadata_Object,
 	count: uint,
 }
 
@@ -594,7 +590,7 @@ Connection :: struct {
 }
 
 Connection_List :: struct {
-	data:  ^Connection,
+	data:  [^]Connection,
 	count: uint,
 }
 
@@ -922,12 +918,12 @@ Color_Set :: struct {
 }
 
 Uv_Set_List :: struct {
-	data:  ^Uv_Set,
+	data:  [^]Uv_Set,
 	count: uint,
 }
 
 Color_Set_List :: struct {
-	data:  ^Color_Set,
+	data:  [^]Color_Set,
 	count: uint,
 }
 
@@ -942,7 +938,7 @@ Edge :: struct {
 }
 
 Edge_List :: struct {
-	data:  ^Edge,
+	data:  [^]Edge,
 	count: uint,
 }
 
@@ -977,7 +973,7 @@ Mesh_Part :: struct {
 }
 
 Mesh_Part_List :: struct {
-	data:  ^Mesh_Part,
+	data:  [^]Mesh_Part,
 	count: uint,
 }
 
@@ -987,7 +983,7 @@ Face_Group :: struct {
 }
 
 Face_Group_List :: struct {
-	data:  ^Face_Group,
+	data:  [^]Face_Group,
 	count: uint,
 }
 
@@ -997,7 +993,7 @@ Subdivision_Weight_Range :: struct {
 }
 
 Subdivision_Weight_Range_List :: struct {
-	data:  ^Subdivision_Weight_Range,
+	data:  [^]Subdivision_Weight_Range,
 	count: uint,
 }
 
@@ -1007,7 +1003,7 @@ Subdivision_Weight :: struct {
 }
 
 Subdivision_Weight_List :: struct {
-	data:  ^Subdivision_Weight,
+	data:  [^]Subdivision_Weight,
 	count: uint,
 }
 
@@ -1526,7 +1522,7 @@ Line_Segment :: struct {
 }
 
 Line_Segment_List :: struct {
-	data:  ^Line_Segment,
+	data:  [^]Line_Segment,
 	count: uint,
 }
 
@@ -1776,7 +1772,7 @@ Lod_Level :: struct {
 }
 
 Lod_Level_List :: struct {
-	data:  ^Lod_Level,
+	data:  [^]Lod_Level,
 	count: uint,
 }
 
@@ -1843,7 +1839,7 @@ Skin_Vertex :: struct {
 }
 
 Skin_Vertex_List :: struct {
-	data:  ^Skin_Vertex,
+	data:  [^]Skin_Vertex,
 	count: uint,
 }
 
@@ -1854,7 +1850,7 @@ Skin_Weight :: struct {
 }
 
 Skin_Weight_List :: struct {
-	data:  ^Skin_Weight,
+	data:  [^]Skin_Weight,
 	count: uint,
 }
 
@@ -1958,7 +1954,7 @@ Blend_Keyframe :: struct {
 }
 
 Blend_Keyframe_List :: struct {
-	data:  ^Blend_Keyframe,
+	data:  [^]Blend_Keyframe,
 	count: uint,
 }
 
@@ -2080,7 +2076,7 @@ Cache_Frame :: struct {
 }
 
 Cache_Frame_List :: struct {
-	data:  ^Cache_Frame,
+	data:  [^]Cache_Frame,
 	count: uint,
 }
 
@@ -2107,7 +2103,7 @@ Cache_Channel :: struct {
 }
 
 Cache_Channel_List :: struct {
-	data:  ^Cache_Channel,
+	data:  [^]Cache_Channel,
 	count: uint,
 }
 
@@ -2229,7 +2225,7 @@ Material_Texture :: struct {
 }
 
 Material_Texture_List :: struct {
-	data:  ^Material_Texture,
+	data:  [^]Material_Texture,
 	count: uint,
 }
 
@@ -2646,7 +2642,7 @@ Texture_Layer :: struct {
 }
 
 Texture_Layer_List :: struct {
-	data:  ^Texture_Layer,
+	data:  [^]Texture_Layer,
 	count: uint,
 }
 
@@ -2704,7 +2700,7 @@ Shader_Texture_Input :: struct {
 }
 
 Shader_Texture_Input_List :: struct {
-	data:  ^Shader_Texture_Input,
+	data:  [^]Shader_Texture_Input,
 	count: uint,
 }
 
@@ -2780,7 +2776,7 @@ Texture_File :: struct {
 }
 
 Texture_File_List :: struct {
-	data:  ^Texture_File,
+	data:  [^]Texture_File,
 	count: uint,
 }
 
@@ -2927,7 +2923,7 @@ Shader_Prop_Binding :: struct {
 }
 
 Shader_Prop_Binding_List :: struct {
-	data:  ^Shader_Prop_Binding,
+	data:  [^]Shader_Prop_Binding,
 	count: uint,
 }
 
@@ -2956,7 +2952,7 @@ Prop_Override :: struct {
 }
 
 Prop_Override_List :: struct {
-	data:  ^Prop_Override,
+	data:  [^]Prop_Override,
 	count: uint,
 }
 
@@ -2966,7 +2962,7 @@ Transform_Override :: struct {
 }
 
 Transform_Override_List :: struct {
-	data:  ^Transform_Override,
+	data:  [^]Transform_Override,
 	count: uint,
 }
 
@@ -3024,7 +3020,7 @@ Anim_Prop :: struct {
 }
 
 Anim_Prop_List :: struct {
-	data:  ^Anim_Prop,
+	data:  [^]Anim_Prop,
 	count: uint,
 }
 
@@ -3123,7 +3119,7 @@ Keyframe :: struct {
 }
 
 Keyframe_List :: struct {
-	data:  ^Keyframe,
+	data:  [^]Keyframe,
 	count: uint,
 }
 
@@ -3251,7 +3247,7 @@ Constraint_Target :: struct {
 }
 
 Constraint_Target_List :: struct {
-	data:  ^Constraint_Target,
+	data:  [^]Constraint_Target,
 	count: uint,
 }
 
@@ -3391,7 +3387,7 @@ Bone_Pose :: struct {
 }
 
 Bone_Pose_List :: struct {
-	data:  ^Bone_Pose,
+	data:  [^]Bone_Pose,
 	count: uint,
 }
 
@@ -3435,7 +3431,7 @@ Name_Element :: struct {
 }
 
 Name_Element_List :: struct {
-	data:  ^Name_Element,
+	data:  [^]Name_Element,
 	count: uint,
 }
 
@@ -3546,7 +3542,7 @@ Warning :: struct {
 }
 
 Warning_List :: struct {
-	data:  ^Warning,
+	data:  [^]Warning,
 	count: uint,
 }
 
@@ -4395,7 +4391,7 @@ Baked_Vec3 :: struct {
 }
 
 Baked_Vec3_List :: struct {
-	data:  ^Baked_Vec3,
+	data:  [^]Baked_Vec3,
 	count: uint,
 }
 
@@ -4406,7 +4402,7 @@ Baked_Quat :: struct {
 }
 
 Baked_Quat_List :: struct {
-	data:  ^Baked_Quat,
+	data:  [^]Baked_Quat,
 	count: uint,
 }
 
@@ -4438,7 +4434,7 @@ Baked_Node :: struct {
 }
 
 Baked_Node_List :: struct {
-	data:  ^Baked_Node,
+	data:  [^]Baked_Node,
 	count: uint,
 }
 
@@ -4455,7 +4451,7 @@ Baked_Prop :: struct {
 }
 
 Baked_Prop_List :: struct {
-	data:  ^Baked_Prop,
+	data:  [^]Baked_Prop,
 	count: uint,
 }
 
@@ -4469,7 +4465,7 @@ Baked_Element :: struct {
 }
 
 Baked_Element_List :: struct {
-	data:  ^Baked_Element,
+	data:  [^]Baked_Element,
 	count: uint,
 }
 
