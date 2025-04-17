@@ -1,0 +1,54 @@
+inputs = [
+    "./deps/"
+]
+
+remove_type_prefix = "ufbx_"
+
+remove_function_prefix = "ufbx_"
+
+import_lib = "ufbx.lib"
+
+package_name = "ufbx"
+
+output_folder = "ufbx"
+
+force_ada_case_types = true
+
+type_overrides = {
+    "Vec2" = "[2]Real"
+    "Vec3" = "[3]Real"
+    "Vec4" = "[4]Real"
+
+    // Assumes UFBX_REAL_IS_FLOAT to be set below, so that `Real :: f32`
+    "Quat" = "quaternion128"
+}
+
+clang_defines = {
+    "UFBX_REAL_IS_FLOAT" = "1"
+}
+
+struct_field_overrides = {
+    "Node_List.data" = "[^]"
+    "Face_List.data" = "[^]"
+    "Uint32_List.data" = "[^]"
+    "Vec2_List.data" = "[^]"
+    "Vec3_List.data" = "[^]"
+    "Vec4_List.data" = "[^]"
+}
+
+procedure_type_overrides = {
+    "generate_indices.streams" = "[^]"
+}
+
+rename_types = {
+    "Prop_Flags" = "Prop_Flag"
+    "Transform_Flags" = "Transform_Flag"
+    "Baked_Key_Flags" = "Baked_Key_Flag"
+}
+
+bit_setify = {
+    "Prop_Flag" = "Prop_Flags"
+    "Transform_Flag" = "Transform_Flags"
+    "Baked_Key_Flag" = "Baked_Key_Flags"
+}
+
