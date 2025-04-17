@@ -12,6 +12,6 @@ where /Q cl.exe || (
 	call "!VS!\VC\Auxiliary\Build\vcvarsall.bat" amd64 || exit /b 1
 )
 
-clang -c %~dp0deps/ufbx.c -o %~dp0deps/ufbx.obj -target x86_64-pc-windows-msvc -O3
+clang -c %~dp0deps/ufbx.c -o %~dp0deps/ufbx.obj -target x86_64-pc-windows-msvc -O3 -D"UFBX_REAL_IS_FLOAT"="1"
 lib /OUT:%~dp0ufbx/ufbx.lib %~dp0deps/ufbx.obj
-del %~dp0deps/ufbx.obj
+del "%~dp0deps\ufbx.obj"
