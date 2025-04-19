@@ -23,9 +23,9 @@ bindgen .
 
 Alternatively, run the following from VS developer console:
 ```PowerShell
-clang -c deps/ufbx.c -o deps/ufbx.obj -target x86_64-pc-windows-msvc -O3
+clang -c deps/ufbx.c -o deps/ufbx.obj -target x86_64-pc-windows-msvc -O3 -D"UFBX_REAL_IS_FLOAT"="1"
 lib /OUT:ufbx/ufbx.lib deps/ufbx.obj
-rm deps/ufbx.obj
+rm "deps\ufbx.obj"
 ```
 
 Both methods assume you have a VS developer console installed.
@@ -35,7 +35,7 @@ Both methods assume you have a VS developer console installed.
 
 Alternatively, run the following from the console:
 ```Shell
-gcc -c deps/ufbx.c -o deps/ufbx.o
+clang -c deps/ufbx.c -o deps/ufbx.o -O3 -D"UFBX_REAL_IS_FLOAT"="1"
 ar r ufbx/ufbx.a deps/ufbx.o
 rm deps/ufbx.o
 ```
